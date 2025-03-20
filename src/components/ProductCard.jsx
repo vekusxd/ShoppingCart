@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import AddToCardButton from "./AddToCardButton";
 import Link from "./StyledLink";
+import { useContext } from "react";
+import CartContext from "../CartContext";
 
 const ProductImg = styled.img`
   width: 150px;
@@ -49,6 +51,7 @@ const AmountP = styled.p`
 `;
 
 const ProductCard = ({ title, price, sku, description, amount, img, id }) => {
+  const { addItem } = useContext(CartContext);
   return (
     <CardWrapper>
       <Link to={`/product/${id}`}>
@@ -60,7 +63,7 @@ const ProductCard = ({ title, price, sku, description, amount, img, id }) => {
       <CardP>$ {price}</CardP>
       <CardSKU>SKU# {sku}</CardSKU>
       <CardDesciption>{description}</CardDesciption>
-      <AddToCardButton>Add to cart</AddToCardButton>
+      <AddToCardButton onClick={() => addItem(id)}>Add to cart</AddToCardButton>
       <AmountP>
         In-stock: <span style={{ color: "#417785" }}>{amount}</span>
       </AmountP>

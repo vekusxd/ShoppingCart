@@ -1,4 +1,4 @@
-import Cart from "../assets/cart.svg?react";
+import Arrow from "../assets/arrowRight.svg?react";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -6,7 +6,7 @@ const Button = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.6rem 1rem;
+  padding: 0.3rem 1rem;
   text-transform: uppercase;
   font-size: 16px;
   background-color: #2d2e3d;
@@ -25,15 +25,15 @@ const IconWrapper = styled.span`
   align-items: center;
 `;
 
-const AddToCardButton = ({ children, onClick }) => {
+const CheckoutButton = ({ children, onClick }) => {
   return (
     <Button onClick={onClick}>
       {children}
       <IconWrapper>
-        <Cart width="16" height="16" />
+        <Arrow width="16" height="16" />
       </IconWrapper>
     </Button>
   );
 };
 
-export default AddToCardButton;
+export default CheckoutButton;

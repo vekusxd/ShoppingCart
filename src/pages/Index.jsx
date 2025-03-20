@@ -1,5 +1,5 @@
+import { useLoaderData } from "react-router";
 import ProductCard from "../components/ProductCard";
-import { data } from "../data";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -27,12 +27,13 @@ const Grid = styled.div`
 `;
 
 const Index = () => {
+  const {products} = useLoaderData();
   return (
     <Container>
       <Heading className="inter-black">Fruit</Heading>
       <SubTitle>Most Popular</SubTitle>
       <Grid>
-        {data.map((e) => (
+        {products.map((e) => (
           <ProductCard key={e.id} {...e} />
         ))}
       </Grid>

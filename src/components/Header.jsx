@@ -3,6 +3,8 @@ import IconImg from "../assets/icon.svg";
 import LeftArrowImg from "../assets/arrowLeft.svg";
 import styled from "styled-components";
 import Link from "../components/StyledLink";
+import { useContext } from "react";
+import CartContext from "../CartContext";
 
 const AlignCenter = styled.div`
   display: flex;
@@ -33,24 +35,32 @@ const NavLink = styled(Link)`
   color: white;
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <LeftWrapper>
-      <NavLink to={"/"}>
-        <img src={IconImg} alt="icon" />
-        <p style={{ fontSize: "1.5rem" }}>Marktetplace</p>
+const Header = () => {
+  const { items } = useContext(CartContext);
+  return (
+    <StyledHeader>
+      <LeftWrapper>
+        <NavLink to={"/"}>
+          <img src={IconImg} alt="icon" />
+          <p style={{ fontSize: "1.5rem" }}>Marktetplace</p>
+        </NavLink>
+        <AlignCenter>
+          <img src={LeftArrowImg} alt="leftArrow" />
+          <p>FRUIT</p>
+        </AlignCenter>
+      </LeftWrapper>
+      <NavLink to={"/cart"}>
+        <img src={CartImg} alt="cart" />
+        <p style={{ color: "white", fontSize: "1rem" }}>CART: </p>
+        <p style={{ color: "#85ccda" }}>
+          {" "}
+          {items
+            .reduce((prev, cur) => prev + cur.price * cur.quantity, 0)
+            .toFixed(2)}{" "}
+        </p>
       </NavLink>
-      <AlignCenter>
-        <img src={LeftArrowImg} alt="leftArrow" />
-        <p>FRUIT</p>
-      </AlignCenter>
-    </LeftWrapper>
-    <NavLink to={"/cart"}>
-      <img src={CartImg} alt="cart" />
-      <p style={{ color: "white", fontSize: "1rem" }}>CART: </p>
-      <p style={{ color: "#85ccda" }}>0</p>
-    </NavLink>
-  </StyledHeader>
-);
+    </StyledHeader>
+  );
+};
 
 export default Header;
