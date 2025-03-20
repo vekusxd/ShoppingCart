@@ -53,10 +53,7 @@ const Header = () => {
         <img src={CartImg} alt="cart" />
         <p style={{ color: "white", fontSize: "1rem" }}>CART: </p>
         <p style={{ color: "#85ccda" }}>
-          {" "}
-          {items
-            .reduce((prev, cur) => prev + cur.price * cur.quantity, 0)
-            .toFixed(2)}{" "}
+          {items.reduce((acc, item) => acc + item.quantity, 0)}
         </p>
       </NavLink>
     </StyledHeader>

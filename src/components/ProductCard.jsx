@@ -3,6 +3,7 @@ import AddToCardButton from "./AddToCardButton";
 import Link from "./StyledLink";
 import { useContext } from "react";
 import CartContext from "../CartContext";
+import PropTypes from "prop-types";
 
 const ProductImg = styled.img`
   width: 150px;
@@ -69,6 +70,16 @@ const ProductCard = ({ title, price, sku, description, amount, img, id }) => {
       </AmountP>
     </CardWrapper>
   );
+};
+
+ProductCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  sku: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default ProductCard;

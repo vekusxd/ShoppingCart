@@ -1,5 +1,6 @@
 import Cart from "../assets/cart.svg?react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Button = styled.button`
   width: fit-content;
@@ -34,6 +35,11 @@ const AddToCardButton = ({ children, onClick }) => {
       </IconWrapper>
     </Button>
   );
+};
+
+AddToCardButton.propTypes = {
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddToCardButton;

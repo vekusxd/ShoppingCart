@@ -1,5 +1,6 @@
 import Arrow from "../assets/arrowRight.svg?react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Button = styled.button`
   width: fit-content;
@@ -34,6 +35,11 @@ const CheckoutButton = ({ children, onClick }) => {
       </IconWrapper>
     </Button>
   );
+};
+
+CheckoutButton.propTypes = {
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default CheckoutButton;
