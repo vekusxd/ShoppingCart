@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router";
 import styled from "styled-components";
-import AddToCardButton from "../components/AddToCardButton";
+import Button from "../components/Button";
+import CartIcon from "../components/CartIcon";
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const ProductDetail = () => {
         <CardP>$ {product.price}</CardP>
         <CardSKU>SKU# {product.sku}</CardSKU>
         <CardDesciption>{product.description}</CardDesciption>
-        <AddToCardButton>Add to cart</AddToCardButton>
+        <Button icon={<CartIcon />}>Add to cart</Button>
         <AmountP>
           In-stock: <span style={{ color: "#417785" }}>{product.amount}</span>
         </AmountP>

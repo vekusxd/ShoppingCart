@@ -3,7 +3,8 @@ import CartContext from "../CartContext";
 import { useContext } from "react";
 import Plus from "../assets/plus.svg?react";
 import Minus from "../assets/minus.svg?react";
-import CheckoutButton from "../components/CheckoutButton";
+import Button from "../components/Button";
+import ArrowRightIcon from "../components/ArrowRightIcon";
 
 const Container = styled.div`
   display: flex;
@@ -142,7 +143,7 @@ const Cart = () => {
             .reduce((prev, cur) => prev + cur.price * cur.quantity, 0)
             .toFixed(2)}
         </p>
-        <CheckoutButton>CHECKOUT</CheckoutButton>
+        <Button icon={<ArrowRightIcon />}>CHECKOUT</Button>
       </TotalContainer>
     </Container>
   );

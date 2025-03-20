@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import AddToCardButton from "./AddToCardButton";
+import Button from "./Button";
 import Link from "./StyledLink";
 import { useContext } from "react";
 import CartContext from "../CartContext";
 import PropTypes from "prop-types";
+import CartIcon from "../components/CartIcon";
 
 const ProductImg = styled.img`
   width: 150px;
@@ -64,7 +65,9 @@ const ProductCard = ({ title, price, sku, description, amount, img, id }) => {
       <CardP>$ {price}</CardP>
       <CardSKU>SKU# {sku}</CardSKU>
       <CardDesciption>{description}</CardDesciption>
-      <AddToCardButton onClick={() => addItem(id)}>Add to cart</AddToCardButton>
+      <Button icon={<CartIcon />} onClick={() => addItem(id)}>
+        Add to cart
+      </Button>
       <AmountP>
         In-stock: <span style={{ color: "#417785" }}>{amount}</span>
       </AmountP>
