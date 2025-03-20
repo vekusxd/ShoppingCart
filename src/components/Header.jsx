@@ -26,7 +26,7 @@ const NavWrapper = styled(AlignCenter)`
   gap: 0.5rem;
 `;
 
-const LogoLink = styled(Link)`
+const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -36,20 +36,20 @@ const LogoLink = styled(Link)`
 const Header = () => (
   <StyledHeader>
     <LeftWrapper>
-      <LogoLink to={"/"}>
+      <NavLink to={"/"}>
         <img src={IconImg} alt="icon" />
         <p style={{ fontSize: "1.5rem" }}>Marktetplace</p>
-      </LogoLink>
+      </NavLink>
       <AlignCenter>
         <img src={LeftArrowImg} alt="leftArrow" />
         <p>FRUIT</p>
       </AlignCenter>
     </LeftWrapper>
-    <NavWrapper>
+    <NavLink to={"/cart"}>
       <img src={CartImg} alt="cart" />
       <p style={{ color: "white", fontSize: "1rem" }}>CART: </p>
       <p style={{ color: "#85ccda" }}>0</p>
-    </NavWrapper>
+    </NavLink>
   </StyledHeader>
 );
 
