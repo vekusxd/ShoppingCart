@@ -1,4 +1,6 @@
 import { useLoaderData } from "react-router";
+import { useContext } from "react";
+import CartContext from "../CartContext";
 import styled from "styled-components";
 import Button from "../components/Button";
 import CartIcon from "../components/CartIcon";
@@ -39,6 +41,7 @@ const CardDesciption = styled.p`
 
 const ProductDetail = () => {
   const { product } = useLoaderData();
+  const { addItem } = useContext(CartContext);
   console.log(product);
   return (
     <Wrapper>
@@ -48,7 +51,9 @@ const ProductDetail = () => {
         <CardP>$ {product.price}</CardP>
         <CardSKU>SKU# {product.sku}</CardSKU>
         <CardDesciption>{product.description}</CardDesciption>
-        <Button icon={<CartIcon />}>Add to cart</Button>
+        <Button onClick={() => addItem(product.id)} icon={<CartIcon />}>
+          Add to cart
+        </Button>
         <AmountP>
           In-stock: <span style={{ color: "#417785" }}>{product.amount}</span>
         </AmountP>
